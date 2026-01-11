@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - Curated Moments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>IMAGE GALLERY</h1>
+    <p>CURATED MOMENTS</p>
+</header>
+
+<div class="filters">
+    <button class="active" onclick="filterImages('all')">ALL</button>
+    <button onclick="filterImages('nature')">NATURE</button>
+    <button onclick="filterImages('city')">CITY</button>
+    <button onclick="filterImages('animals')">ANIMALS</button>
+</div>
+<!-- Gallery -->
+<div class="gallery">
+    <!-- Nature (3 images) -->
+    <img src="images/image1.jpg" class="image nature" onclick="openLightbox(0)">
+    <img src="images/image2.jpg" class="image nature" onclick="openLightbox(1)">
+    <img src="images/image3.jpg" class="image nature" onclick="openLightbox(2)">
+
+    <!-- City (3 images) -->
+    <img src="images/city1.jpg" class="image city" onclick="openLightbox(3)">
+    <img src="images/city2.jpg" class="image city" onclick="openLightbox(4)">
+    <img src="images/city3.jpg" class="image city" onclick="openLightbox(5)">
+
+    <!-- Animals (3 images) -->
+    <img src="images/animal1.jpg" class="image animals" onclick="openLightbox(6)">
+    <img src="images/animal2.jpg" class="image animals" onclick="openLightbox(7)">
+    <img src="images/animal3.jpg" class="image animals" onclick="openLightbox(8)">
+</div>
+
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <button class="nav prev" onclick="changeImage(-1)">‹</button>
+    <img id="lightbox-img">
+    <button class="nav next" onclick="changeImage(1)">›</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

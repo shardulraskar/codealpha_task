@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* APP LAYOUT */
+.app {
+    width: 94%;
+    max-width: 1200px;
+    height: 650px;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 30px;
+}
+
+/* LEFT SECTION */
+.album-section {
+    padding: 24px;
+}
+
+.app-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1db954;
+    margin-bottom: 18px;
+}
+
+.album-cover {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.album-info {
+    margin-top: 18px;
+}
+
+.album-info h1 {
+    font-size: 30px;
+}
+
+.album-info p {
+    font-size: 15px;
+    color: #cfcfcf;
+}
+
+.album-info span {
+    font-size: 13px;
+    color: #9a9a9a;
+}
+
+/* PLAYER */
+.player-section {
+    background: #181818;
+    border-radius: 22px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* PROGRESS */
+.progress-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+#progress {
+    appearance: none;
+    height: 5px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #1db954, #1ed760);
+}
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #ddd;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #1db954;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 12px 30px rgba(29,185,84,0.6);
+}
+
+.play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #111;
+}
+
+#pauseIcon { display: none; }
+.playing #playIcon { display: none; }
+.playing #pauseIcon { display: block; }
+
+/* OPTIONS */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* PLAYLIST */
+.playlist {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.playlist ul {
+    list-style: none;
+}
+
+.playlist li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.playlist li:hover {
+    background: #2a2a2a;
+    transform: translateX(6px);
+}
+
+.playlist .active {
+    background: #1db95422;
+    border-left: 4px solid #1db954;
+}
+
+/* Playlist cover */
+.playlist-cover {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Playlist text */
+.playlist-info strong {
+    font-size: 14px;
+}
+
+.playlist-info span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Track time */
+.track-time {
+    margin-left: auto;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Mini EQ */
+.mini-eq {
+    display: none;
+    align-items: flex-end;
+    gap: 3px;
+    height: 16px;
+    margin-left: 8px;
+}
+
+.mini-eq span {
+    width: 3px;
+    background: #1db954;
+    animation: eq 1s infinite ease-in-out;
+}
+
+.mini-eq span:nth-child(1) { animation-delay: 0s; }
+.mini-eq span:nth-child(2) { animation-delay: 0.2s; }
+.mini-eq span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes eq {
+    0% { height: 4px; }
+    50% { height: 16px; }
+    100% { height: 4px; }
+}
+
+.playlist li.playing .mini-eq {
+    display: flex;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .app {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+}
